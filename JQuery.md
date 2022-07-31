@@ -39,7 +39,7 @@ $box.preAll()
 $box.next()
 $box.nextAll()
 $box.siblings()//获取所有的兄弟
-$box.index()//获取索引
+$box.index()//获取索引获取的是元素在兄弟结构中的索引
 $box.parent()//获取父元素
 $box.parents() //获取祖先元素一直到document
 ~~~
@@ -128,3 +128,4 @@ $('a').each(function(index,item){})
 //$.toArray()转换为数组  $.merge()数组的合并 $makeArry()把类数组转换为数组  $.uniqueSort()去重加排序  $.type数据类型的检查
 ~~~
 
+![截屏2022-07-30 10.39.25](/Users/ccxs/Documents/笔记/js-笔记/JQuery.assets/截屏2022-07-30 10.39.25.png)
