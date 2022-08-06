@@ -76,3 +76,5 @@ sum(...ary)
 
 Flat()这个方法可以解决数组的扁平化
 
+- startsWith() / endsWhith()  
+- repeat()
