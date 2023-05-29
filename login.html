@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登录页面</title>
+    <link rel="stylesheet" href="./css/common.css" />
+    <script src="./js/jQuery.js"></script>
+
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-main w">
+        <div class="logo">
+          <a href="index.html">
+            <h1>湖北旅游网</h1>
+          </a>
+        </div>
+        <nav class="nav">
+          <a href="scenery.html">自然风光</a>
+          <a href="./culture.html">特色文化</a>
+          <a href="./food.html">美食</a>
+          <a href="submit.html">建议</a>
+          <a href="./login.html">登录</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="cc-container">
+      <!-- main-start -->
+      <main class="cc-main">
+        <!-- banner -->
+        <div class="cc-main-banner"></div>
+        <!-- from-start -->
+        <div class="cc-main-content">
+          <div class="cc-main-from">
+            <!-- from-nav -->
+            <div class="main-from-header">
+              <nav class="cc-main-nav">
+                <span class="active" data-index="0">密码登录</span
+                ><span data-index="1">手机登录</span>
+              </nav>
+              <!-- from-nav-end -->
+            </div>
+
+            <!-- form-start -->
+            <div class="main-from-content">
+              <div class="active">
+                <form class="main-from-content-pwd" action="">
+                  <input
+                    type="text"
+                    placeholder="请输入用户名"
+                    class="username"
+                  />
+                  <input
+                    type="password"
+                    name="pwd"
+                    id="pwd"
+                    placeholder="请输入密码"
+                    class="pwd"
+                  />
+                  <button class="cc-btn cc-user">登 录</button>
+                  <div class="cc-qq-wc">
+                    <a href="">QQ登录</a>
+                    <a href="">微信登录</a>
+                  </div>
+                  <div class="cc-from-button">
+                    <a href="">忘记密码</a>
+                    <a href="">忘记账号名</a>
+                    <a href="">免费注册</a>
+                  </div>
+                </form>
+              </div>
+
+              <div>
+                <form class="main-from-content-pwd" action="">
+                  <input
+                    type="text"
+                    placeholder="请输入手机号"
+                    class="phonenumber"
+                  />
+                  <input
+                    type="text"
+                    name="pwd"
+                    id="pwd"
+                    placeholder="请输入验证码"
+                    class="yan"
+                  />
+                  <button class="cc-btn cc-phone">登 录</button>
+                  <div class="cc-qq-wc">
+                    <a href="">QQ登录</a>
+                    <a href="">微信登录</a>
+                  </div>
+                  <div class="cc-from-button">
+                    <a href="">免费注册</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- form-end -->
+          </div>
+        </div>
+      </main>
+      <!-- main-end -->
+
+      <!-- footer-start -->
+    </div>
+  </body>
+  <script>
+    $(function () {
+      const username = 'admin';
+      const pwd = 'admin';
+      const phone = '13797808103';
+      const yan = 'ccxsnb';
+
+      const $btn = $('.cc-main-nav span');
+      const $lists = $('.main-from-content > div');
+      console.log($lists);
+      $btn.click(function () {
+        $(this).addClass('active').siblings().removeClass('active');
+        $lists
+          .eq($(this).attr('data-index'))
+          .addClass('active')
+          .siblings()
+          .removeClass('active');
+      });
+
+      $('.cc-user').click(function (e) {
+        e.preventDefault();
+        const $username = $('.username').val();
+        const $pwd = $('.pwd').val();
+
+        if ($username === username && $pwd === pwd) {
+          sessionStorage.setItem('token', 'ccxsnb');
+          window.location = './index.html';
+        }
+      });
+
+      $('.cc-phone').click(function (e) {
+        e.preventDefault();
+        const $phonenumber = $('.phonenumber').val();
+        const $pwd = $('.yan').val();
+
+        if ($phonenumber === phone && $pwd === yan) {
+          sessionStorage.setItem('token', 'ccxsnb');
+          window.location = './index.html';
+        }
+      });
+    });
+  </script>
+</html>
+
+
+
+
+//index.html
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>主页面</title>
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/jQuery.js"></script>
+    <script src="./js/index.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-main w">
+        <div class="logo">
+          <a href="index.html">
+            <h1>湖北旅游网</h1>
+          </a>
+        </div>
+        <nav class="nav">
+          <a href="scenery.html">自然风光</a>
+          <a href="./culture.html">特色文化</a>
+          <a href="./food.html">美食</a>
+          <a href="submit.html">建议</a>
+          <a href="./login.html">登录</a>
+        </nav>
+      </div>
+    </header>
+    <div id="scrollPics">
+      <ul class="slider">
+        <li><img src="./img/index-banner-1.webp" alt="" /></li>
+        <li><img src="./img/index-banner-2.jpeg" alt="" /></li>
+        <li><img src="./img/u=3360853773,1222598559&fm=253&fmt=auto&app=138&f=JPEG.webp" alt="" /></li>
+        <li><img src="./img/a6efce1b9d16fdfa47fa6d10bd8f8c5495ee7bbe.jpeg" alt="" /></li>
+      </ul>
+      <ul class="num"></ul>
+    </div>
+    <main class="w">
+      <div class="main-content">
+        <div class="main-content-item">
+          <div class="main-content_left">
+            <h2 class="main-content_title title">武汉欢迎你</h2>
+            <div class="main-content_p">
+              <p class="cc-indent">
+                武汉市是国家历史文化名城、楚文化的重要发祥地。春秋战国以来，武汉一直是中国南方的军事和商业重镇，元代成为湖广行省省治，明清时期被誉为“楚中第一繁盛处”和“天下四聚”之一。清末汉口开埠和洋务运动开启武汉现代化进程，使其成为近代中国重要的经济中心。武汉是辛亥革命首义之地，近代史上数度成为全国政治、军事、文化中心。
+              </p>
+            </div>
+            <button data-index="0" class="cc-btn">更多</button>
+          </div>
+          <aside class="main-content_right">
+            <img src="./img/detail-wh-1.jpeg" alt="" />
+            <img src="./img/detail-wh-2.jpeg" alt="" />
+            <img src="./img/detail-wh-3.jpeg" alt="" />
+          </aside>
+        </div>
+        <div class="main-content-item">
+          <div class="main-content_left">
+            <h2 class="main-content_title title">咸宁欢迎你</h2>
+            <div class="main-content_p">
+              <p class="cc-indent">
+                咸宁市素有“湖北南大门”之称，是武汉城市圈和长江中游城市群重要成员
+                [2]
+                ；曾获中国人居环境范例奖、全国最适宜人居城市、中国魅力城市、国家森林城市
+                [4] 、首批通过全国水生态文明建设试点验收城市 [5]
+                、第一批国家农业可持续发展试验示范区、 [6] 国家卫生城市 [7]
+                等荣誉称号；鄂南大竹海、赤壁黄盖湖、通山闯王李自成墓、九宫山、北伐贺胜桥、汀泗桥战役遗址等重要景区、一城十二泉（温泉）等皆为位于其境内；市境区位适中，交通便捷，128千米长江黄金水道依境东流，京广铁路、106、107、京珠高速公路贯通南北
+              </p>
+            </div>
+            <button data-index="1" class="cc-btn">更多</button>
+          </div>
+          <aside class="main-content_right">
+            <img src="./img/detail-xn-1.jpeg" alt="" />
+            <img src="./img/detail-xn-2.jpeg" alt="" />
+            <img src="./img/detail-xn-3.jpeg" alt="" />
+          </aside>
+        </div>
+        <div class="main-content-item">
+          <div class="main-content_left">
+            <h2 class="main-content_title title">襄阳欢迎你</h2>
+            <div class="main-content_p">
+              <p class="cc-indent">
+                襄阳位于长江支流汉江的中游，是鄂、豫、渝、陕毗邻地区的中心城市。襄阳市的发展肇始于周宣王封仲山甫（樊穆仲）于此，从荆州牧刘表徙治襄阳始襄阳历来为府、道、州、路、县治所。
+                [4] 襄阳市是国家历史文化名城，是省域副中心城市 [52]
+                、汉江流域中心城市 [3] 、长江中游城市群成员之一 [2]
+                ，国务院批复确定的湖北省新型工业基地和鄂西北中心城市。 [1] [68]
+                襄阳市是全国铁路运输网的重要枢纽 [69]
+                ，境内襄阳北站是全国前三、全省最大的铁路货运特等编组站
+                [70-71]，是华北、中南、西南车流集散的重要站点 [71]
+                ；襄阳东站是全国地级市中一次性建成规模最大的高铁客运站，是国家“八纵八横”高速铁路网的超大型枢纽节点
+              </p>
+            </div>
+            <button data-index="2" class="cc-btn">更多</button>
+          </div>
+          <aside class="main-content_right">
+            <img src="./img/detail-xy-1.jpeg" alt="" />
+            <img src="./img/detail-xy-2.jpeg" alt="" />
+            <img src="./img/detail-xy-3.jpeg" alt="" />
+          </aside>
+        </div>
+        <div class="main-content-item">
+          <div class="main-content_left">
+            <h2 class="main-content_title title">鄂州欢迎你</h2>
+            <div class="main-content_p">
+              <p class="cc-indent">
+                鄂州市，帝尧时为“樊国”，夏时为“鄂都”，殷商时为“鄂国”，春秋战国时为“楚鄂王封地”，三国时孙权在此称帝
+                。1949年5月14日，鄂城解放。1983年，撤销鄂城市、鄂城县，将黄冈县黄州镇并入，合并成立湖北省辖鄂州市
+                。鄂州市交通便捷，已形成由公路、铁路、航空、水运4种运输方式构成的交通运输网络。1992年，鄂州市与日本三条市、非洲科特迪瓦阿本古努市、澳大利亚怀阿拉市，先后结为友好城市。
+              </p>
+            </div>
+            <button data-index="3" class="cc-btn">更多</button>
+          </div>
+          <aside class="main-content_right">
+            <img src="./img/detail-ez-1.png" alt="" />
+            <img src="./img/detail-ez-2.png" alt="" />
+            <img src="./img/detail-ez-3.jpeg" alt="" />
+          </aside>
+        </div>
+      </div>
+    </main>
+    <section class="section-picture w"></section>
+    <footer>
+      <div  class="footer-top"">
+        <div class="w">
+          <ul>
+            <li>湖北旅游网</li>
+            <li>商务合作</li>
+            <li>网站声明</li>
+            <li>隐私政策</li>
+            <li>联系我们</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="./js/banner.js"></script>
+    <script>
+      $(function () {
+        const $btn = $('.main-content-item .cc-btn');
+
+        $btn.click(function () {
+          const index = $(this).attr('data-index');
+
+          sessionStorage.setItem('key', index);
+          window.location = './details.html';
+        });
+      });
+    </script>
+  </body>
+</html>
+// index.js
+
+const token = sessionStorage.getItem('token');
+
+if (token !== 'ccxsnb') {
+  window.location = './login.html';
+}
+                                
+                                
+ // banner.js                               
+$(function () {
+  var slider =$("#scrollPics .slider");
+  var imgCon =$("#scrollPics .slider li");
+  imgCon.not(imgCon.eq(0)).hide();
+  var num =$("#scrollPics .num")
+  var len =slider.find("li").length;
+  var html_page ="";
+  index=0;
+  for (var i=0;i<len;i++){
+      if (i===0){
+          html_page+="<li class='active'>"+(i+1)+"</li>"
+      }
+      else {
+          html_page +="<li>"+(i+1)+"</li>"
+      }
+  }
+  num.html(html_page)
+  function showPic(index) {
+      imgCon.eq(index).show().siblings("li").hide();
+      num.find("li").eq(index).addClass("active").siblings("li").removeClass("active")
+  }
+  $(".num li").click(function () {
+      index=$(this).index()
+      showPic(index)
+  })
+  $("#scrollPics").hover(function () {
+      clearInterval(window.timer)
+  },function () {
+      window.timer =setInterval(function () {
+          showPic(index);
+          index++;
+          if (index ===len){
+              index =0
+          }
+      },2000)
+  }).trigger("mouseleave")
+})                                
+                          
+
